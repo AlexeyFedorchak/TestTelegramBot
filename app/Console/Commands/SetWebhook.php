@@ -34,10 +34,8 @@ class SetWebhook extends Command
         $telegram = new Api(env('TELEGRAM_API_KEY'));
         $webhookLink = 'https://2837f01c.ngrok.io/' . env('TELEGRAM_API_KEY') . '/webhook';
 
-        //dd($telegram->getWebhookInfo());
         $response = $telegram->setWebhook([
             'url' => $webhookLink,
-            //'certificate' => storage_path('app/public/telegram.cert')
         ]);
 
         if ($response === true) {
