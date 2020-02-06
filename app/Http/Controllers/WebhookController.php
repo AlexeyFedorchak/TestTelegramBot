@@ -93,7 +93,7 @@ class WebhookController extends Controller
             return;
         }
 
-        if (empty($user->catergory_id)) {
+        if (empty($user->catergory_id) && is_numeric($message['text'])) {
             $user->category_id = $message['text'];
             $user->save();
 

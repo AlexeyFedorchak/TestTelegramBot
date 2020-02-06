@@ -32,7 +32,8 @@ class SetWebhook extends Command
         $this->info('Setting..');
 
         $telegram = new Api(env('TELEGRAM_API_KEY'));
-        $webhookLink = 'https://2837f01c.ngrok.io/' . env('TELEGRAM_API_KEY') . '/webhook';
+        $domain = $this->ask('Please specify the ngrok domain?');
+        $webhookLink = 'https://' . $domain . '/' . env('TELEGRAM_API_KEY') . '/webhook';
 
         $response = $telegram->setWebhook([
             'url' => $webhookLink,
